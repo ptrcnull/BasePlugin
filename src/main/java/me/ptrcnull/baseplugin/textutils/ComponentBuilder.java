@@ -9,42 +9,42 @@ public class ComponentBuilder {
     private TextComponent base = new TextComponent();
     private TextComponent c;
 
-    ComponentBuilder() {
+    public ComponentBuilder() {
         c = new TextComponent();
     }
 
-    ComponentBuilder(String message) {
+    public ComponentBuilder(String message) {
         c = new TextComponent(message);
     }
 
-    ComponentBuilder color(ChatColor color) {
+    public ComponentBuilder color(ChatColor color) {
         c.setColor(color);
         return this;
     }
 
-    ComponentBuilder clickEvent(ClickEvent ev) {
+    public ComponentBuilder event(ClickEvent ev) {
         c.setClickEvent(ev);
         return this;
     }
 
-    ComponentBuilder hoverEvent(HoverEvent ev) {
+    public ComponentBuilder event(HoverEvent ev) {
         c.setHoverEvent(ev);
         return this;
     }
 
-    ComponentBuilder text(String text) {
+    public ComponentBuilder text(String text) {
         base.addExtra(c);
         c = new TextComponent(text);
         return this;
     }
 
-    ComponentBuilder component(TextComponent component) {
+    public ComponentBuilder component(TextComponent component) {
         base.addExtra(c);
         c = component;
         return this;
     }
 
-    TextComponent build() {
+    public TextComponent build() {
         base.addExtra(c);
 
         return base;
