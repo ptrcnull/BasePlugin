@@ -8,13 +8,13 @@ Maven:
 ```xml
 <repository>
     <id>ptrcnull</id>
-    <url>https://maven.ptrcnull.me/repository/maven-releases/</url>
+    <url>https://mvn.ptrc.pl/</url>
 </repository>
 ```
 ```xml
 <dependency>
     <groupId>me.ptrcnull</groupId>
-    <artifactId>BasePlugin</artifactId>
+    <artifactId>base-plugin</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
