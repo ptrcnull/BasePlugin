@@ -5,7 +5,7 @@ import net.md_5.bungee.api.chat.TextComponent;
 
 import java.util.function.BinaryOperator;
 
-public class ComponentReducer implements BinaryOperator<TextComponent> {
+public class ComponentReducer implements BinaryOperator<BaseComponent> {
     private BaseComponent[] join;
 
     public ComponentReducer() {
@@ -16,13 +16,21 @@ public class ComponentReducer implements BinaryOperator<TextComponent> {
     }
 
     @Override
-    public TextComponent apply(TextComponent c1, TextComponent c2) {
+    public BaseComponent apply(BaseComponent c1, BaseComponent c2) {
+        BaseComponent base;
+        if (c1.getClickEvent() != null || c1.getHoverEvent() != null) {
+            base = new TextComponent();
+            base.addExtra(c1);
+        } else {
+            base = c1;
+        }
+
         if (join != null) {
             for (BaseComponent j : join) {
-                c1.addExtra(j);
+                base.addExtra(j);
             }
         }
-        c1.addExtra(c2);
-        return c1;
+        base.addExtra(c2);
+        return base;
     }
 }
