@@ -1,6 +1,7 @@
 package me.ptrcnull.baseplugin.textutils;
 
 import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -41,6 +42,18 @@ public class ComponentBuilder {
     public ComponentBuilder component(TextComponent component) {
         base.addExtra(c);
         c = component;
+        return this;
+    }
+
+    public ComponentBuilder components(BaseComponent[] components) {
+        base.addExtra(c);
+
+        for (final BaseComponent comp : components) {
+            base.addExtra(comp);
+        }
+
+        c = new TextComponent();
+
         return this;
     }
 
