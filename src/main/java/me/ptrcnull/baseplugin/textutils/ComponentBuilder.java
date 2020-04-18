@@ -62,4 +62,10 @@ public class ComponentBuilder {
 
         return base;
     }
+
+    public BaseComponent[] toArray() {
+        base.addExtra(c);
+
+        return base.getExtra().toArray(new BaseComponent[]{});
+    }
 }
